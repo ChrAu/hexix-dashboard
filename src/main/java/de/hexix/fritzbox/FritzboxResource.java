@@ -1,6 +1,7 @@
 package de.hexix.fritzbox;
 
 
+import de.hexix.Boundary;
 import de.hexix.fritzbox.model.homeautomation.Device;
 import de.hexix.fritzbox.model.homeautomation.Temperature;
 import jakarta.json.Json;
@@ -25,15 +26,15 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @Path("/temperatures")
-
-public class FritzboxService {
+@Boundary
+public class FritzboxResource{
 
     @ConfigProperty(name = "fritzboxusername")
-     String username;
+    String username;
     @ConfigProperty(name = "fritzboxpassword")
-     String password;
+    String password;
     @ConfigProperty(name = "fritzboxUrl")
-     String fritzboxUrl;
+    String fritzboxUrl;
 
 
 
