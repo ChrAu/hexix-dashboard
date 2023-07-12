@@ -23,7 +23,7 @@ jobs:
       run: mvn -B package --file pom.xml
 
   build-docker:
-
+    needs: build-maven
     runs-on: ubuntu-latest
 
     steps:
