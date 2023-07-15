@@ -25,4 +25,4 @@ jobs:
 
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file ./src/main/docker/Dockerfile.jvm --tag hexix-dashboard:$(date +%s)
+      run: pwd && ls -lsh && docker build . --file ./src/main/docker/Dockerfile.jvm --tag hexix-dashboard:$(date +%s)
