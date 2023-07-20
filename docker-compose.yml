@@ -1,0 +1,18 @@
+version: "3.9"  # optional since v1.27.0
+
+services:
+  hexix-dashboard-db:
+    image: postgres:15
+    container_name: hexix-dashboard-db
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: hexix
+      POSTGRES_PASSWORD: hexix
+    volumes:
+      - hexix_dashboard_db_data:/var/lib/postgresql/data
+
+
+volumes:
+  hexix_dashboard_db_data:
+    driver: local
