@@ -56,6 +56,14 @@ public class Hkr {
     @Element(name = "boostactiveendtime", required = false)
     private int boostactiveendtime;
 
+    @Element(name = "adaptiveHeatingActive", required = false)
+    private boolean adaptiveHeatingActive;
+
+
+    @Element(name = "adaptiveHeatingRunning", required = false)
+    private boolean adaptiveHeatingRunning;
+
+
     @Element(name = "batterylow", required = false)
     private boolean batterylow;
 
@@ -204,5 +212,21 @@ public class Hkr {
         return "Hkr [tist=" + tist + ", tsoll=" + tsoll + ", tabsenk=" + tabsenk + ", komfort=" + komfort + ", lock="
                 + lock + ", devicelock=" + devicelock + ", errorcode=" + errorcode + ", batterylow=" + batterylow
                 + ", nextChange=" + nextChange + "]";
+    }
+
+    public boolean isAdaptiveHeatingActive() {
+        return adaptiveHeatingActive;
+    }
+
+    public void setAdaptiveHeatingActive(boolean adaptiveHeatingActive) {
+        this.adaptiveHeatingActive = adaptiveHeatingActive;
+    }
+
+    public boolean isAdaptiveHeatingRunning() {
+        return adaptiveHeatingRunning;
+    }
+
+    public void setAdaptiveHeatingRunning(boolean adaptiveHeatingRunning) {
+        this.adaptiveHeatingRunning = adaptiveHeatingRunning;
     }
 }

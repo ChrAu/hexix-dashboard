@@ -17,6 +17,7 @@
  */
 package de.hexix.fritzbox.model.homeautomation;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -53,6 +54,9 @@ public abstract class AbstractDeviceStatistics {
      * @return statistics with measurement units
      */
     protected List<Statistics> getStats(final List<Statistics> stats, final MeasurementUnit measurementUnit) {
+        if(stats == null){
+            return Collections.emptyList();
+        }
         return stats
                 .stream()
                 .map(stat -> {
