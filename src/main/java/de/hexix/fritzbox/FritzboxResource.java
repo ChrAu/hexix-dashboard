@@ -31,4 +31,15 @@ FritzboxService fritzboxService;
 
        return fritzboxService.getTemperatur();
     }
+
+
+    @GET
+    @Path("/elastic")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String hello() {
+        fritzboxService.getTemperatur();
+        fritzboxService.uploadElasticSearch();
+        return "Hello from RESTEasy Reactive";
+
+    }
 }

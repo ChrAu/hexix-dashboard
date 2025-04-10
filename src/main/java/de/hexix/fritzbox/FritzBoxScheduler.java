@@ -20,7 +20,15 @@ public class FritzBoxScheduler {
     void checkFritzboxData(){
         fritzboxService.getTemperatur();
 
+        try {
+            fritzboxService.uploadElasticSearch();
+        }catch (Exception e){
+            LOG.warning(e.getMessage());
+        }
+
     }
+
+
 
 
 
