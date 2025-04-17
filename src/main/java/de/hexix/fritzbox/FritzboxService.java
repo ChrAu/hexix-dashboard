@@ -101,33 +101,36 @@ public class FritzboxService {
         namedQuery.setMaxResults(1000); // Nur ein Dokument holen
         final List<TemperaturFritz> notInElasticSearch = namedQuery.getResultList();
 
-        final IndexTemperatur build = QuarkusRestClientBuilder.newBuilder()
-                .baseUri(URI.create("https://es.codeheap.dev"))
-                .clientHeadersFactory(new ClientHeadersFactory() {
-                    @Override
-                    public MultivaluedMap<String, String> update(final MultivaluedMap<String, String> incomingHeaders, final MultivaluedMap<String, String> clientOutgoingHeaders) {
-                        return null;
-                    }
-
-                    @Override
-                    public Uni<MultivaluedMap<String, String>> getHeaders(final MultivaluedMap<String, String> incomingHeaders, final MultivaluedMap<String, String> clientOutgoingHeaders) {
-                        return Uni.createFrom().item(() -> {
-                            MultivaluedHashMap<String, String> newHeaders = new MultivaluedHashMap<>();
-                            newHeaders.add("Authorization", "ApiKey " + apiKey);
-                            return newHeaders;
-                        });
-                    }
-                })
-                .build(IndexTemperatur.class);
+//        final IndexTemperatur build = new QuarkusRestClientBuilder()
+//                .baseUri(URI.create("https://es.codeheap.dev"))
+//                .clientHeadersFactory(new ClientHeadersFactory() {
+//                    @Override
+//                    public MultivaluedMap<String, String> update(final MultivaluedMap<String, String> incomingHeaders, final MultivaluedMap<String, String> clientOutgoingHeaders) {
+//                        MultivaluedHashMap<String, String> newHeaders = new MultivaluedHashMap<>();
+//                        newHeaders.add("Authorization", "ApiKey " + apiKey);
+//
+//                        return newHeaders;
+//                    }
+//
+////                    @Override
+////                    public Uni<MultivaluedMap<String, String>> getHeaders(final MultivaluedMap<String, String> incomingHeaders, final MultivaluedMap<String, String> clientOutgoingHeaders) {
+////                        return Uni.createFrom().item(() -> {
+////                            MultivaluedHashMap<String, String> newHeaders = new MultivaluedHashMap<>();
+////
+////                            return newHeaders;
+////                        });
+////                    }
+//                })
+//                .build(IndexTemperatur.class);
 
 
         for (TemperaturFritz inElasticSearch : notInElasticSearch) {
 
-            try(final RestResponse<String> index = build.index(String.valueOf(6), JsonObject.mapFrom(inElasticSearch).encode())){
-                if(index.getStatus() == 200){
-                    inElasticSearch.setPersistedElasticSearch(true);
-                }
-            }
+//            try(final RestResponse<String> index = build.index(String.valueOf(6), JsonObject.mapFrom(inElasticSearch).encode())){
+//                if(index.getStatus() == 200){
+//                    inElasticSearch.setPersistedElasticSearch(true);
+//                }
+//            }
 
         }
 
