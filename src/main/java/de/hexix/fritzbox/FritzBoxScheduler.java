@@ -21,7 +21,7 @@ public class FritzBoxScheduler {
         fritzboxService.getTemperatur();
 
         try {
-            fritzboxService.uploadElasticSearch();
+//            fritzboxService.uploadElasticSearch();
         }catch (Exception e){
             LOG.warning(e.getMessage());
         }
