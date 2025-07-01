@@ -55,6 +55,9 @@ public class FritzboxService {
         List<TemperaturFritz> fritzVentil = new ArrayList<>();
         for (Device device : devices) {
             Temperature temperature = device.getTemperature();
+            if(temperature == null){
+                continue;
+            }
             temperaturGeraet.put(device.getName(), temperature.getCelsius());
             final TemperaturFritz temperaturFritz = new TemperaturFritz();
             temperaturFritz.setLocation(device.getName());
